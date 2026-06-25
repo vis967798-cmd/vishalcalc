@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VISHAL'S CALC</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="main-container">
+
+    <div class="calculator">
+
+        <div class="header">
+
+            <h1>VISHAL'S CALC</h1>
+
+        </div>
+
+        <!-- Premium Status -->
+
+        <div id="premiumBox" class="premium-box hidden">
+
+            <div class="premium-title">
+                👑 Premium Active
+            </div>
+
+            <div id="remainingText">
+                7 Calculations Left
+            </div>
+
+            <div class="progress">
+
+                <div
+                id="progressBar"
+                class="progress-fill">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Display -->
+
+        <div class="display">
+
+            <input
+            type="text"
+            id="screen"
+            value="0"
+            readonly>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+            <button onclick="clearScreen()">AC</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="append('%')">%</button>
+            <button onclick="append('/')">÷</button>
+
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('*')">×</button>
+
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('-')">−</button>
+
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append('+')">+</button>
+
+            <button onclick="append('0')">0</button>
+            <button onclick="append('.')">.</button>
+
+            <button
+            class="equal"
+            onclick="calculate()">
+            =
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL -->
+
+<div
+id="paymentModal"
+class="modal">
+
+    <div class="modal-content">
+
+        <!-- STEP 1 -->
+
+        <div id="step1">
+
+            <h2>
+                🔒 Premium Result
+            </h2>
+
+            <p>
+                Unlock your result
+            </p>
+
+            <button id="payBtn">
+                Pay Now
+            </button>
+
+            <button id="otherBtn">
+                Otherwise
+            </button>
+
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div
+        id="step2"
+        class="hidden">
+
+            <h2>
+                Processing...
+            </h2>
+
+            <div class="loader"></div>
+
+            <p
+            id="paymentFail"
+            class="hidden">
+
+            ❌ Payment rejected
+
+            </p>
+
+            <button id="backBtn">
+                Back
+            </button>
+
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div
+        id="step3"
+        class="hidden">
+
+            <h2>
+                Verification
+            </h2>
+
+            <p class="hint">
+
+                Hint:
+                Creator's Name v*****+
+                Intelligent
+
+            </p>
+
+            <input
+            id="secretInput"
+            type="text"
+            placeholder="Enter Secret code">
+
+            <button id="verifyBtn">
+                Verify
+            </button>
+
+            <p
+            id="errorText"
+            class="error hidden">
+
+            Wrong Phrase
+
+            </p>
+
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div
+        id="step4"
+        class="hidden">
+
+            <h2>
+                ✅ Premium Activated
+            </h2>
+
+            <p>
+                Result
+            </p>
+
+            <h1 id="finalResult"></h1>
+
+            <button
+            id="continueBtn">
+
+            Continue
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

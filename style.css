@@ -1,0 +1,453 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron',sans-serif;
+}
+
+body{
+    background:#05010f;
+    overflow:hidden;
+    color:white;
+}
+
+#matrix{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.main-container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator{
+
+    width:100%;
+    max-width:430px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    border-radius:30px;
+
+    padding:25px;
+
+    box-shadow:
+    0 0 20px #a855f7,
+    0 0 50px rgba(168,85,247,.35);
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.header h1{
+
+    font-size:2rem;
+
+    color:#d946ef;
+
+    text-shadow:
+    0 0 10px #d946ef,
+    0 0 20px #d946ef,
+    0 0 40px #d946ef;
+
+}
+
+.subtitle{
+
+    margin-top:8px;
+
+    color:#c084fc;
+
+    font-size:.8rem;
+
+    letter-spacing:2px;
+
+}
+
+/* =========================
+   PREMIUM BOX
+========================= */
+
+.premium-box{
+
+    margin-bottom:18px;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    border:1px solid #d946ef;
+
+    background:
+    rgba(217,70,239,.08);
+
+}
+
+.premium-title{
+
+    color:#e879f9;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:8px;
+
+    margin-top:10px;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:#13081f;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:100%;
+
+    background:
+    linear-gradient(
+    90deg,
+    #d946ef,
+    #8b5cf6
+    );
+
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* =========================
+   DISPLAY
+========================= */
+
+.display{
+    margin-bottom:20px;
+}
+
+.display input{
+
+    width:100%;
+
+    height:90px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    text-align:right;
+
+    font-size:2rem;
+
+    color:#f5d0fe;
+
+    background:#12071d;
+
+    box-shadow:
+    inset 0 0 20px rgba(217,70,239,.25);
+
+}
+
+/* =========================
+   BUTTON GRID
+========================= */
+
+.buttons{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+.buttons button{
+
+    height:65px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:15px;
+
+    color:white;
+
+    font-size:1rem;
+
+    background:
+    rgba(255,255,255,.06);
+
+    transition:.25s;
+
+}
+
+.buttons button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 0 15px #d946ef,
+    0 0 25px #d946ef;
+
+}
+
+.equal{
+
+    grid-column:span 2;
+
+    background:
+    linear-gradient(
+    45deg,
+    #d946ef,
+    #8b5cf6
+    ) !important;
+
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.82);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+
+    width:90%;
+
+    max-width:420px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    background:#0f0618;
+
+    border:1px solid #d946ef;
+
+    box-shadow:
+    0 0 25px #d946ef;
+
+}
+
+.modal-content h2{
+
+    color:#e879f9;
+
+    margin-bottom:15px;
+
+}
+
+.modal-content p{
+
+    margin-bottom:15px;
+
+}
+
+/* =========================
+   MODAL BUTTONS
+========================= */
+
+.modal button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    cursor:pointer;
+
+    margin:8px;
+
+    border-radius:12px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    45deg,
+    #d946ef,
+    #8b5cf6
+    );
+
+}
+
+/* =========================
+   SECRET INPUT
+========================= */
+
+#secretInput{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    color:white;
+
+    background:#180923;
+
+    border:1px solid #d946ef;
+
+    margin-bottom:12px;
+
+}
+
+.hint{
+
+    color:#c084fc;
+
+    font-size:.85rem;
+
+}
+
+.error{
+
+    color:#ff4d6d;
+
+    font-weight:bold;
+
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+
+    width:60px;
+    height:60px;
+
+    margin:20px auto;
+
+    border:5px solid #241033;
+
+    border-top:5px solid #d946ef;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .calculator{
+        padding:18px;
+    }
+
+    .display input{
+
+        height:75px;
+
+        font-size:1.6rem;
+
+    }
+
+    .buttons button{
+
+        height:58px;
+
+    }
+
+    .header h1{
+
+        font-size:1.6rem;
+
+    }
+
+}
