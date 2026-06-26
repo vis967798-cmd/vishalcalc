@@ -451,3 +451,21 @@ body{
     }
 
 }
+.qr-box{
+    margin:20px 0;
+    text-align:center;
+}
+
+.qr-box img{
+    width:180px;
+    height:auto;
+    border-radius:12px;
+    border:2px solid #d946ef;
+    box-shadow:0 0 15px #d946ef;
+}
+
+.qr-box p{
+    margin-top:10px;
+    color:#c084fc;
+    font-size:14px;
+}
