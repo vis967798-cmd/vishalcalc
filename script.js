@@ -301,29 +301,28 @@ function deleteLast(){
 
 function calculate(){
 
+    const expression = screen.value.trim();
+
+    
+    if(!/[+\-*/%]/.test(expression)){
+        return;
+    }
+
     try{
 
-        const result =
-        eval(screen.value);
+        const result = eval(expression);
 
-        pendingResult =
-        result;
+        pendingResult = result;
 
-        let count =
-        getPremiumCount();
-
-        // Premium Active
+        let count = getPremiumCount();
 
         if(count > 0){
 
-            screen.value =
-            result;
+            screen.value = result;
 
             count--;
 
-            setPremiumCount(
-            count
-            );
+            setPremiumCount(count);
 
             updatePremiumUI();
 
@@ -331,14 +330,11 @@ function calculate(){
 
         }
 
-        // Show Payment Modal
-
         showModal();
 
     }catch{
 
-        screen.value =
-        "Error";
+        screen.value = "Error";
 
     }
 
